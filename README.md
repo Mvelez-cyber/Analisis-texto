@@ -1,19 +1,9 @@
-# 🎈 Blank app template
+📊 Portal Practicantes Feel
+¡El análisis de texto nunca fue tan sencillo ni poderoso! 🧠
 
-A simple Streamlit app template for you to modify!
+Portal Practicantes Feel es una integracion intuitiva y de alto rendimiento para realizar análisis de texto avanzados. Transformamos texto sin procesar en información útil mediante técnicas de Procesamiento de Lenguaje Natural (NLP), ayudándote a extraer el sentimiento de cualquier documento o conjunto de datos de texto. Ideal para comprender mejor los datos textuales de nuestros practicantes.
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
-
-### How to run it on your own machine
-
-1. Install the requirements
-
-   ```
-   $ pip install -r requirements.txt
-   ```
-
-2. Run the app
-
-   ```
-   $ streamlit run streamlit_app.py
-   ```
+🎬 Ejemplo de Uso
+Carga tu texto.
+Haz clic en el boton Analizar.
+Observa los resultados en tan solo segundos.
