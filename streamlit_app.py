@@ -31,4 +31,3 @@ if st.button("Analizar"):
         st.warning("Por favor, introduce un texto para analizar.")
 
 st.markdown("---")
-st.write("Esta aplicación utiliza FinBERT para analizar el sentimiento de textos.")
