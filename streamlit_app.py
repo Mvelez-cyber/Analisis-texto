@@ -24,9 +24,16 @@ if st.button("Analizar"):
         etiquetas = ['negativo', 'neutral', 'positivo']
         sentimiento = etiquetas[predicciones.argmax().item()].upper()
         
+        # Definir el color del círculo según el sentimiento
+        colores = {
+            'NEGATIVO': '🔴',  # Alternativa HTML: '<span style="color:red">●</span>'
+            'NEUTRAL': '🟡',   # Alternativa HTML: '<span style="color:yellow">●</span>'
+            'POSITIVO': '🟢'   # Alternativa HTML: '<span style="color:green">●</span>'
+        }
+        
         # Mostrar el resultado
         st.subheader("Análisis de sentimiento:")
-        st.write(f"El texto tiene un sentimiento: {sentimiento}")
+        st.write(f"El texto tiene un sentimiento: {sentimiento} {colores[sentimiento]}")
     else:
         st.warning("Por favor, introduce un texto para analizar.")
 
