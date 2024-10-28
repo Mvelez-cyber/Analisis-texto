@@ -22,7 +22,7 @@ if st.button("Analizar"):
         
         # Obtener la etiqueta con mayor probabilidad
         etiquetas = ['negativo', 'neutral', 'positivo']
-        sentimiento = etiquetas[predicciones.argmax().item()]
+        sentimiento = etiquetas[predicciones.argmax().item()].upper()
         
         # Mostrar el resultado
         st.subheader("Análisis de sentimiento:")
