@@ -15,16 +15,20 @@ texto_entrada = st.text_area("Introduce el texto que deseas analizar:", height=2
 
 if st.button("Analizar"):
     if texto_entrada:
-        # Tokenizar y generar el resumen
-        inputs = tokenizer([texto_entrada], max_length=1024, return_tensors="pt", truncation=True)
-        summary_ids = model.generate(inputs["input_ids"], num_beams=4, min_length=30, max_length=100, early_stopping=True)
-        resumen = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+        # Tokenizar y realizar la clasificación
+        inputs = tokenizer(texto_entrada, return_tensors="pt", padding=True, truncation=True)
+        outputs = model(**inputs)
+        predicciones = outputs.logits.softmax(dim=-1)
         
-        # Mostrar el resumen
-        st.subheader("Resumen del texto:")
-        st.write(resumen)
+        # Obtener la etiqueta con mayor probabilidad
+        etiquetas = ['negativo', 'neutral', 'positivo']
+        sentimiento = etiquetas[predicciones.argmax().item()]
+        
+        # Mostrar el resultado
+        st.subheader("Análisis de sentimiento:")
+        st.write(f"El texto tiene un sentimiento: {sentimiento}")
     else:
         st.warning("Por favor, introduce un texto para analizar.")
 
 st.markdown("---")
-st.write("Esta aplicación utiliza el modelo BART de Facebook para generar resúmenes de texto.")
+st.write("Esta aplicación utiliza FinBERT para analizar el sentimiento de textos.")
